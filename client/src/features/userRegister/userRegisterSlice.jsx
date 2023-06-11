@@ -1,6 +1,20 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
+  name: "",
+  avatar: "",
+  subId: "",
+  userDetails: {
+    lang: "",
+    interests: [],
+    birthYear: "",
+    nationality: "",
+    location: "",
+    gender: "",
+    occupation: "",
+    bio: "",
+  },
+
   connectedUser: {
     name: "",
     avatar: "",
@@ -35,7 +49,7 @@ export const userRegisterSlice = createSlice({
   reducers: {
     addDetail: (state, action) => {
       const { field, value } = action.payload;
-      state[field] = value;
+      state.userDetails[field] = value;
     },
     addAllDetails: (state, action) => {
       const specificUser = action.payload.isConnectedUser
